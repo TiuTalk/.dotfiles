@@ -1,4 +1,9 @@
 zsh-users/zsh-completions
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
+
+robbyrussell/oh-my-zsh path:lib/history.zsh
+robbyrussell/oh-my-zsh path:lib/key-bindings.zsh
+robbyrussell/oh-my-zsh path:plugins/asdf
+
 denysdovhan/spaceship-prompt

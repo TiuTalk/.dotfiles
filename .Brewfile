@@ -1,9 +1,13 @@
 tap "homebrew/cask-versions"
 tap "homebrew/cask-fonts"
+tap "getantibody/tap"
 
-brew "nvim"
 brew "yadm"
+brew "nvim"
 brew "gpg"
+brew "wget"
+brew "zsh"
+brew "antibody"
 
 cask "google-chrome-dev"
 cask "fonts/font-fira-code"

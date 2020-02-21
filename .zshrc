@@ -28,3 +28,6 @@ alias brewup="brew update; brew upgrade; brew cleanup; brew doctor"
 alias gst="git status"
 alias gco="git checkout"
 alias gp="git push"
+
+# Load fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

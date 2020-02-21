@@ -1,3 +1,7 @@
+# Load autocomplete & prompt
+autoload -Uz compinit; compinit
+autoload -U promptinit; promptinit
+
 # Antibody
 if [ -f "$HOME/.zsh_plugins.sh" ]; then
   source ~/.zsh_plugins.sh
@@ -6,10 +10,6 @@ else
   antibody bundle < $HOME/.zsh_plugins.txt > $HOME/.zsh_plugins.sh
   source $HOME/.zsh_plugins.sh
 fi
-
-# Load autocomplete & prompt
-autoload -U compinit && compinit
-autoload -U promptinit && promptinit
 
 # PATH changes
 export PATH="/usr/local/sbin:$PATH"
@@ -31,3 +31,7 @@ alias gp="git push"
 
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Load asdf
+source $(brew --prefix asdf)/asdf.sh
+source $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash

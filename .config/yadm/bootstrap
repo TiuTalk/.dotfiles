@@ -1,5 +1,8 @@
 #!/bin/sh
 
+RUBY_VERSION="2.7.0"
+NODEJS_VERSION="12.16.1"
+
 system_type=$(uname -s)
 
 if [ "$system_type" = "Darwin" ]; then
@@ -17,3 +20,20 @@ fi
 
 # Update yadm origin URL
 yadm remote set-url origin "git@github.com:TiuTalk/.dotfiles.git"
+
+# Install Ruby
+if ! (asdf plugin list | grep ruby) >/dev/null 2>&1; then
+  echo "Installing Ruby $RUBY_VERSION through asdf"
+  asdf plugin-add ruby
+  asdf install ruby $RUBY_VERSION
+  asdf global ruby $RUBY_VERSION
+fi
+
+# Install NodeJS
+if ! (asdf plugin list | grep nodejs) >/dev/null 2>&1; then
+  echo "Installing NodeJS $NODEJS_VERSION through asdf"
+  asdf plugin-add nodejs
+  bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+  asdf install nodejs $NODEJS_VERSION
+  asdf global nodejs $NODEJS_VERSION
+fi

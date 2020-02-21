@@ -17,6 +17,9 @@ brew "fzf"
 brew "ripgrep"
 brew "asdf"
 
+# ASDF dependencies
+%w(coreutils automake autoconf openssl libyaml readline libxslt libtool unixodbc unzip curl).each { |f| brew f }
+
 cask "google-chrome-dev"
 cask "fonts/font-fira-code"
 cask "iterm2"

@@ -2,6 +2,8 @@
 
 RUBY_VERSION="2.7.0"
 NODEJS_VERSION="12.16.1"
+PYTHON_VERSION="3.8.1"
+PYTHON2_VERSION="2.7.17"
 
 system_type=$(uname -s)
 
@@ -36,8 +38,13 @@ if ! (asdf plugin list | grep nodejs) >/dev/null 2>&1; then
   bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
   asdf install nodejs $NODEJS_VERSION
   asdf global nodejs $NODEJS_VERSION
+fi
 
-  # Install NodeJS packages
-  asdf shell nodejs $NODEJS_VERSION
-  npm install -g yarn && yarn global add neovim
+# Install Python
+if ! (asdf plugin list | grep python) >/dev/null 2>&1; then
+  echo "Installing Python $PYTHON_VERSION through asdf"
+  asdf plugin-add python
+  asdf install python $PYTHON_VERSION
+  asdf install python $PYTHON2_VERSION
+  asdf global python $PYTHON_VERSION $PYTHON2_VERSION
 fi

@@ -36,4 +36,8 @@ if ! (asdf plugin list | grep nodejs) >/dev/null 2>&1; then
   bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
   asdf install nodejs $NODEJS_VERSION
   asdf global nodejs $NODEJS_VERSION
+
+  # Install NodeJS packages
+  asdf shell nodejs $NODEJS_VERSION
+  npm install -g yarn && yarn global add neovim
 fi
